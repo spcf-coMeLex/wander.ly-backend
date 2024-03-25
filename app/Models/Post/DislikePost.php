@@ -13,6 +13,8 @@ class DislikePost extends Model
 {
     use HasFactory, HasUuids, SoftDeletes;
 
+    protected $table    = "dislike_posts";
+
     protected $fillable = [
         'user_id',
         'community_post_id',

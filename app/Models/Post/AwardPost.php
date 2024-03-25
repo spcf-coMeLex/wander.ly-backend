@@ -13,6 +13,8 @@ class AwardPost extends Model
 {
     use HasFactory, HasUuids, SoftDeletes;
 
+    protected $table    = "award_posts";
+
     protected $fillable = [
         'user_id',
         'community_post_id',

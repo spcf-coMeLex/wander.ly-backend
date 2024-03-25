@@ -11,6 +11,8 @@ class User extends Model
 {
     use HasFactory, HasUuids, SoftDeletes;
 
+    protected $table    = "users";
+
     protected $fillable = [
         'principal_id'
     ];

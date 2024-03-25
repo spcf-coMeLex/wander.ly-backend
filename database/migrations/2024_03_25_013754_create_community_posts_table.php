@@ -16,6 +16,8 @@ return new class extends Migration
             $table->uuid('user_id');
             $table->string('title');
             $table->string('description');
+            $table->integer('like_count')->default(0);
+            $table->float('award_points')->default(0.0);
             $table->string('img_basename');
             $table->softDeletes();
             $table->timestamps();

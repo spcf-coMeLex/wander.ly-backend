@@ -13,11 +13,15 @@ class CommunityPost extends Model
 {
     use HasFactory, HasUuids, SoftDeletes;
 
+    protected $table    = "community_posts";
+
     protected $fillable = [
         'user_id',
         'title',
         'description',
-        'img_basename',
+        'like_counts',
+        'award_points',
+        'img_basename'
     ];
 
     protected $hidden = [

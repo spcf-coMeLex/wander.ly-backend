@@ -4,9 +4,6 @@ namespace App\Repositories\Post;
 
 use App\Repositories\BaseRepository;
 
-use Illuminate\Support\Facades\Storage,
-    Illuminate\Http\File;
-
 use App\Models\Post\CommunityPost,
     App\Models\User\User;
 
@@ -19,20 +16,25 @@ class CreateCommunityPostRepository extends BaseRepository
 
         // $path = Storage::disk('public')->put('post', $request->file('picture'));
 
+        $validated = $request->validated();
+
+        if($validated){
         $user = User::where('principal_id', $request->principal_id)->first();
 
         $path = $request->file('picture')->store('post', 'public');
         $fileName = basename($path);
 
         $comPost = CommunityPost::create([
-            // 'user_id'       =>  $user->id,
-            'user_id'       => $request->user_id,
-            'title'        =>  $request->title,
+            'user_id'       =>  $user->id,
+            'title'         =>  $request->title,
             'description'   =>  $request->description,
             'img_basename'  =>  $fileName
         ]);
 
-        dd($comPost);
+        return $this->success('Community post created successfully!');
+        }
+
+        return $this->error("Something went wrong!");
 
         
     }

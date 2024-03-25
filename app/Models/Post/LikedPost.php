@@ -13,6 +13,8 @@ class LikedPost extends Model
 {
     use HasFactory, HasUuids, SoftDeletes;
 
+    protected $table    = "liked_posts";
+
     protected $fillable = [
         'user_id',
         'community_post_id',

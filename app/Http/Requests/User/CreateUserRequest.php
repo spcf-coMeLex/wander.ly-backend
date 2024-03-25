@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Post;
+namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CommunityPostRequest extends FormRequest
+class CreateUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,7 @@ class CommunityPostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'principal_id'  => 'required|string|min:3|max:255'
         ];
     }
 }
