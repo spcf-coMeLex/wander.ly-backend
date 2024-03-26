@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Post;
+namespace App\Http\Requests\Post\AwardPost;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateLikedPostRequest extends FormRequest
+class CreateAwardPostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,7 +23,8 @@ class CreateLikedPostRequest extends FormRequest
     {
         return [
             'principal_id'       => 'required|string|min:3|max:255',
-            'community_post_id'  => 'required|string|min:3|max:255'
+            'community_post_id'  => 'required|string|min:3|max:255',
+            'currentUserPoints'  => 'required|numeric'
         ];
     }
 }

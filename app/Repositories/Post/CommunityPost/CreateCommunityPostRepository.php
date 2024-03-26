@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Post;
+namespace App\Repositories\Post\CommunityPost;
 
 use App\Repositories\BaseRepository;
 
@@ -26,8 +26,8 @@ class CreateCommunityPostRepository extends BaseRepository
 
         $comPost = CommunityPost::create([
             'user_id'       =>  $user->id,
-            'title'         =>  $request->title,
-            'description'   =>  $request->description,
+            'place'         =>  $request->place,
+            'content'       =>  $request->content,
             'img_basename'  =>  $fileName
         ]);
 

@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('community_posts', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('user_id');
-            $table->string('title');
-            $table->string('description');
-            $table->integer('like_count')->default(0);
+            $table->string('place');
+            $table->string('content');
+            $table->integer('like_counts')->default(0);
             $table->float('award_points')->default(0.0);
             $table->string('img_basename');
             $table->softDeletes();

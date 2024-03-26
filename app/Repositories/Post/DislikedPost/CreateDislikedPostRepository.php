@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Repositories\Post;
+namespace App\Repositories\Post\DislikedPost;
 
 use App\Repositories\BaseRepository;
 
-use App\Models\Post\LikedPost,
+use App\Models\Post\DislikePost,
     App\Models\Post\CommunityPost,
     App\Models\User\User;
 
 
-class CreateLikedPostRepository extends BaseRepository
+class CreateDislikedPostRepository extends BaseRepository
 {
     public function execute($request)
     {
@@ -18,14 +18,12 @@ class CreateLikedPostRepository extends BaseRepository
         if($validated){
         $user = User::where('principal_id', $request->principal_id)->first();
         
-        LikedPost::create([
+        DislikePost::create([
             'user_id'               => $user->id,
             'community_post_id'     => $request->community_post_id
         ]);
 
-        CommunityPost::where('id', $request->community_post_id)->increment('like_count');
-
-        return $this->success('Liked post created successfully!');
+        return $this->success('Disliked post created successfully!');
         }
 
         return $this->error("Something went wrong!");
